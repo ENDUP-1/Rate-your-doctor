@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Doctor - Rate Your Doctor</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <header>
+        <h1>Rate Doctor</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="doctors.html">Doctors</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2 id="doctor-name">Rate Doctor</h2> <!-- Doctor's name will be inserted here by JavaScript -->
+        <form action="#" method="post">
+            <div class="star-rating">
+                <input type="radio" name="rating" id="rating-5" value="5"><label for="rating-5"><img src="images/star.png" alt="5 stars"></label>
+                <input type="radio" name="rating" id="rating-4" value="4"><label for="rating-4"><img src="images/star.png" alt="4 stars"></label>
+                <input type="radio" name="rating" id="rating-3" value="3"><label for="rating-3"><img src="images/star.png" alt="3 stars"></label>
+                <input type="radio" name="rating" id="rating-2" value="2"><label for="rating-2"><img src="images/star.png" alt="2 stars"></label>
+                <input type="radio" name="rating" id="rating-1" value="1"><label for="rating-1"><img src="images/star.png" alt="1 star"></label>
+            </div>
+
+            <div class="note-section">
+                <label for="note">Leave a note:</label>
+                <textarea id="note" name="note" rows="4" placeholder="Write your feedback here..."></textarea>
+            </div>
+
+            <button type="submit">Submit Rating</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to extract the doctor's name from the URL and display it
+        const urlParams = new URLSearchParams(window.location.search);
+        const doctorName = urlParams.get('name') || 'Doctor'; // Default to 'Doctor' if no name is provided
+        document.getElementById('doctor-name').textContent = `Rate ${doctorName}`;
+    </script>
+</body>
+</html>

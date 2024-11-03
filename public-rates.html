@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Ratings - Rate Your Doctor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Public Ratings</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="doctors.html">Doctors</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Najran University</h2>
+        
+        <!-- Buttons to select each doctor -->
+        <button onclick="showRatings('abdullah')" class="doctor-button">Dr. Abdullah bin Ibrahim Khanfour</button>
+        <button onclick="showRatings('mohammed')" class="doctor-button">Dr. Mohammed Ali Mishhour Hamdi</button>
+
+        <!-- Ratings Section, displayed dynamically -->
+        <div id="ratings-section">
+            <!-- JavaScript will inject ratings here based on the selected doctor -->
+        </div>
+    </div>
+
+    <script>
+        // Ratings data for each doctor
+        const ratingsData = {
+            abdullah: {
+                name: "Dr. Abdullah bin Ibrahim Khanfour",
+                specialty: "Internet of Things (IoT) and Network Analysis",
+                ratings: [
+                    { score: "4.5/5", comment: "Insightful IoT lectures!" },
+                    { score: "4.8/5", comment: "Best professor, always available for questions." }
+                ]
+            },
+            mohammed: {
+                name: "Dr. Mohammed Ali Mishhour Hamdi",
+                specialty: "Databases and Big Data",
+                ratings: [
+                    { score: "4.3/5", comment: "Very thorough and supportive in database course." },
+                    { score: "4.6/5", comment: "Big Data expertise, engaging classes!" }
+                ]
+            }
+        };
+
+        // Function to display ratings for the selected doctor
+        function showRatings(doctorKey) {
+            const doctor = ratingsData[doctorKey];
+            const ratingsSection = document.getElementById("ratings-section");
+            
+            // Build HTML content for the doctor's ratings
+            let htmlContent = `
+                <h2>${doctor.name}</h2>
+                <p><strong>Specialty:</strong> ${doctor.specialty}</p>
+                <div class="short-ratings">
+            `;
+            doctor.ratings.forEach(rating => {
+                htmlContent += `<p><strong>Rating:</strong> ${rating.score} - "${rating.comment}"</p>`;
+            });
+            htmlContent += `
+                </div>
+                <button onclick="window.location.href='rate-doctor.html?name=${encodeURIComponent(doctor.name)}'" class="rate-button">Rate ${doctor.name}</button>
+            `;
+
+            // Insert the content into the ratings section
+            ratingsSection.innerHTML = htmlContent;
+        }
+    </script>
+</body>
+</html>

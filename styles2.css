@@ -1,0 +1,76 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+}
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+h1, h2 {
+    color: #333;
+}
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+button:hover {
+    background-color: #45a049;
+}
+
+/* Star Rating Styles */
+.star-rating {
+    direction: rtl;
+    display: inline-flex;
+    font-size: 2em;
+    margin-top: 10px;
+}
+.star-rating input[type="radio"] {
+    display: none;
+}
+.star-rating label {
+    cursor: pointer;
+}
+.star-rating img {
+    width: 40px;
+    height: 40px;
+}
+.star-rating input[type="radio"]:checked ~ label img {
+    filter: grayscale(0) brightness(1);
+}
+.star-rating label img {
+    filter: grayscale(1) brightness(0.8);
+}
+.star-rating label:hover img,
+.star-rating label:hover ~ label img {
+    filter: grayscale(0) brightness(1);
+}
+
+/* Note Section */
+.note-section {
+    margin-top: 15px;
+}
+.note-section textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    resize: vertical;
+}
